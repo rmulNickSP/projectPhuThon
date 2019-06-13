@@ -15,12 +15,6 @@
     border-bottom-right-radius: .3rem;
     border-bottom-left-radius: .3rem;
   }
-  .container{
-      border:solid 1px #ffbf00;
-  }
-  .menu{
-    border:solid 1px #00ffff;
-  }
   li{
       margin-left: 25px;
       margin-right: 25px;
