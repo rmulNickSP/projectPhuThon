@@ -10,21 +10,28 @@
 <?php
 include("connect_db.php");
 $con = connect_db();
-$sql="INSERT INTO user (id,permiss_id,user_id,pass_id,card_id) 
-VALUES(' ','3','$_POST[usrname]','$_POST[psw]','$_POST[idcard]')";
 
-// $sql_user = mysqli_query($con,$sql)or die("add_user/ insert error".mysqli_error($con));
+echo $_POST['usrname'];
+echo "<hr>";
 
+$select_sql = mysqli_query($con,"SELECT user_id FROM user
+WHERE user_id LIKE '$_POST[usrname]%';")
+
+// $sql = 'INSERT INTO user (id, permiss_id, user_id, pass_id,card_id)
+// VALUES ('', '3', '$_POST[usrname]', '$_POST[psw]', '$_POST[idcard]')'
+
+if($select_sql==true){
+    <script>
+    swal({
+        title: "สมัครสมาชิกสำเร็จ",
+        icon: "error",
+        button: "ตกลง",
+    </script>
+}else{
+// $sql_user = mysqli_query($con,"INSERT INTO user (id, permiss_id, user_id, pass_id,card_id) VALUES ('', '3', '$_POST[usrname]', '$_POST[psw]', '$_POST[idcard]')")or die("add_user/ insert error".mysqli_error($con));
+}
 mysqli_close($con);
 
 ?>
 </body>
 </html>
-
-<script>
-
-// window.location.href = "index.html";
-
-
-
-</script>
