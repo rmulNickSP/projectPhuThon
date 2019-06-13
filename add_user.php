@@ -23,7 +23,7 @@ mysqli_close($con);
 
 <script>
 
-window.location.href = "index.html";
+// window.location.href = "index.html";
 
 
 
