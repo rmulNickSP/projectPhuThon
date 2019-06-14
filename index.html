@@ -23,13 +23,13 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> 
   <div class="container-fluid">
    
       <a class="navbar-brand" href="index.html"><i style="font-size: 36px" class="fas fa-h-square"></i> PhuThon pak5</a>
     
     <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" href="#" id="myBtnlogin">เข้าสู่ระบบ</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" id="myBtnlogin"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a></li>
     </ul>
   </div>
 </nav>
@@ -67,7 +67,7 @@
           
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" method="post" action="chk_user.php">
+          <form role="form" method="post" action="chk_user.php" id="matchlogin">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> ชื่อผู้ใช้</label>
               <input type="text" class="form-control" id="usrname" name="username" placeholder="กรอกชื่อผู้ใช้งาน" required>
@@ -107,7 +107,8 @@
           <form role="form" method="post" action="" id="matchpass">
             <div class="form-group">
               <label for="usrname"><i class="fas fa-user"></i> ชื่อผู้ใช้</label>
-              <input type="text" class="form-control" id="usrname" name="usrname" placeholder="กรอกชื่อผู้ใช้งาน" required>
+              <input type="text" class="form-control chk_user" id="usrname" name="usrname" placeholder="กรอกชื่อผู้ใช้งาน" required>
+              <span id='showtxtuser' style="color:red"></span>
             </div>
             <div class="form-group">
               <label for="psw"><i class="fas fa-key"></i> รหัสผ่าน</label>
@@ -149,7 +150,30 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#myBtnsignup").click(function(){
     $("#signup").modal();
-  });
+  }); 
+
+  $('.chk_user').blur(function() {
+				var text = $(this).val();
+       //alert(text)
+				if(text!=""){
+				$.getJSON( "check_username.php", function( data ) {
+				  var items = [];
+          //alert(data)
+				  $.each( data, function( key, val ) {
+				    if(val == text ){
+				    	$('#showtxtuser').html("<b>ชื่อผู้ใช้ถูกใช้แล้ว !!!!</b>");
+              $("input:text").val("");
+				    	 return false;
+
+				    }else{
+				    	$('#showtxtuser').html("");
+				    }
+				  });
+
+				});
+				}
+			});
+
 });
 $('#matchpass').validate({ 
 								
@@ -170,7 +194,6 @@ $('#matchpass').validate({
        }
     }
   });
-  
 
   $("#matchpass").submit(function(e){
 				e.preventDefault();
@@ -202,7 +225,7 @@ $('#signup').on('hidden.bs.modal', function (e) {
 					        processData: false
 	  });	
 	}
-})
+});
 </script>
 </body>
 </html>

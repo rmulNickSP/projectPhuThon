@@ -25,3 +25,11 @@
   a:hover{
       color: brown;
   }
+  .box  
+  {  
+   width:800px;  
+   border:1px solid #ccc;  
+   background-color:#fff;  
+   border-radius:5px;
+   margin-top:36px;  
+  }
