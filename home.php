@@ -63,7 +63,7 @@ window.location.href = "index.html";
 </nav>
 
 
-<div class="container">
+<div class="container con1">
   <div>
   <br>
   <form class="form-inline my-2 my-lg-0 menusearch">
