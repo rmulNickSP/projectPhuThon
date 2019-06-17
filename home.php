@@ -14,7 +14,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/af7942016f.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="home.css">
   <?php //validate ?>
 		<script src="js/validate/jquery.validate.min.js" ></script>
 		<script src="js/validate/additional-methods.min.js" ></script>
@@ -66,7 +66,7 @@ window.location.href = "index.html";
 <div class="container">
   <div>
   <br>
-  <form class="form-inline my-2 my-lg-0 ">
+  <form class="form-inline my-2 my-lg-0 menusearch">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
